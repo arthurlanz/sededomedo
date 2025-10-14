@@ -1,9 +1,6 @@
-<script setup>
-
-</script>
+<script setup></script>
 <template>
-  a
+  <h1>4favoritos</h1>
 </template>
 <style scoped>
-
 </style>
