@@ -1,5 +1,5 @@
 <script setup></script>
 <template>
-  <h1>sede do medo</h1>
+  <router-view> </router-view>
 </template>
 <style scoped></style>
