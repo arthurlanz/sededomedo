@@ -167,7 +167,7 @@ watch(showSuggestions, (newVal) => {
 .search-bar__input {
   width: 100%;
   padding: 0.75rem 3rem 0.75rem 3rem;
-  background: #111827;
+  background: #131313fd;
   border: 1px solid rgba(139, 0, 0, 0.3);
   border-radius: 0.5rem;
   color: white;
