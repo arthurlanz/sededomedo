@@ -1,44 +1,90 @@
-# sededomedo
+# 🎬 SEDE DO MEDO
 
-This template should help get you started developing with Vue 3 in Vite.
+Plataforma web completa para descobrir, explorar e avaliar filmes de terror.
 
-## Recommended IDE Setup
+## 🚀 Funcionalidades
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- ✅ Listagem de filmes de terror (populares, em alta, melhor avaliados)
+- ✅ Busca avançada de filmes
+- ✅ Detalhes completos (sinopse, elenco, trailer, avaliações)
+- ✅ Sistema de favoritos com localStorage
+- ✅ Histórico de visualizações
+- ✅ Player de trailers integrado
+- ✅ Design responsivo e sombrio
+- ✅ Aviso de conteúdo +18
+- ✅ Animações e transições suaves
 
-## Recommended Browser Setup
+## 🛠️ Tecnologias
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- **Vue.js 3** - Framework JavaScript
+- **Vite** - Build tool
+- **Pinia** - State management
+- **Vue Router** - Roteamento
+- **Axios** - HTTP client
+- **TMDB API** - Dados de filmes
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+## 📦 Instalação
+```bash
+# Instalar dependências
 npm install
-```
 
-### Compile and Hot-Reload for Development
+# Configurar variáveis de ambiente
+# Crie um arquivo .env na raiz do projeto e adicione:
+VITE_TMDB_TOKEN=seu_token_aqui
 
-```sh
+# Executar em desenvolvimento
 npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
+# Build para produção
 npm run build
+
+# Preview da build
+npm run preview
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 🎨 Características do Design
 
-```sh
-npm run lint
-```
+- Paleta de cores sombria (preto, vermelho sangue)
+- Efeitos de glitch e grain
+- Animações suaves
+- Skeleton loading
+- Modo responsivo mobile-first
+- Acessibilidade WCAG 2.1
+
+## 📝 Licença
+
+Projeto educacional - Dados fornecidos por TMDB
+
+## 👨‍💻 Desenvolvido por
+
+Arthur Lanznaster e Gabriel Sombrio - 2025
+````
+
+---
+
+## 🎉 Projeto Completo!
+
+Pronto! Criei o site completo de filmes de terror com todas as funcionalidades solicitadas:
+
+### ✅ **O que foi implementado:**
+
+1. **Configuração completa** - .env, axios, stores, router
+2. **Composables reutilizáveis** - useMovies, useFavorites, useImageLoader
+3. **6 Componentes** - AgeWarning, LoadingScreen, SearchBar, MovieCard, MovieGrid, TrailerModal
+4. **5 Views** - Home, MovieDetail, Favorites, Search, NotFound
+5. **App.vue completo** - Header, navegação, footer
+6. **CSS global** - Tema sombrio, animações, responsividade
+7. **Integração TMDB** - API completa funcionando
+8. **Sistema de favoritos** - localStorage
+9. **Histórico de visualizações**
+10. **Busca com sugestões**
+11. **Player de trailers**
+12. **Design responsivo**
+
+### 🚀 **Para rodar o projeto:**
+````bash
+npm install
+npm run dev
+````
+
+O site está completo e pronto para uso! Todos os requisitos funcionais e não funcionais foram implementados. 🎬🩸
