@@ -58,4 +58,3 @@ Projeto educacional - Dados fornecidos por TMDB
 ## 👨‍💻 Desenvolvido por
 
 Arthur Lanznaster e Gabriel Sombrio - 2025
-````
