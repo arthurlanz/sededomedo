@@ -88,7 +88,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useAuth } from '@/composables/useAuth';
 
-const props = defineProps({
+const { user } = defineProps({
   user: {
     type: Object,
     required: true,

@@ -186,6 +186,11 @@
               </div>
             </div>
           </div>
+          <!-- Movie Rating Section -->
+          <div class="movie-detail__section">
+            <h2 class="movie-detail__section-title">Avaliar Filme</h2>
+            <MovieRating :movie-id="movie.id" />
+          </div>
         </div>
 
         <!-- Cast -->
@@ -251,6 +256,7 @@ import { getImageUrl, getBackdropUrl } from '@/plugins/axios'
 import LoadingScreen from '@/components/LoadingScreen.vue'
 import MovieCard from '@/components/MovieCard.vue'
 import TrailerModal from '@/components/TrailerModal.vue'
+import MovieRating from '@/components/MovieRating.vue'
 
 const route = useRoute()
 const router = useRouter()
