@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <!-- Hero Section -->
     <section v-if="trendingMovies.length > 0" class="home__hero">
       <div class="home__hero-slider">
         <Transition name="fade" mode="out-in">
@@ -44,8 +43,6 @@
           </div>
         </Transition>
       </div>
-
-      <!-- Hero Navigation -->
       <div class="home__hero-nav">
         <button
           v-for="(movie, index) in trendingMovies.slice(0, 5)"
@@ -56,10 +53,7 @@
         ></button>
       </div>
     </section>
-
-    <!-- Main Content -->
     <div class="home__content container">
-      <!-- Filters and View Controls -->
       <div class="home__controls">
         <div class="home__filters">
           <select v-model="filterGenre" @change="handleGenreChange" class="home__select">
@@ -94,8 +88,6 @@
           </svg>
         </button>
       </div>
-
-      <!-- Popular Horror Movies Section -->
       <section class="home__section">
         <h2 class="home__section-title">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -118,8 +110,6 @@
           @load-more="loadMore"
         />
       </section>
-
-      <!-- Top Rated Section -->
       <section v-if="topRatedMovies.length > 0" class="home__section">
         <h2 class="home__section-title">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -215,7 +205,8 @@ const handleGenreChange = () => {
 };
 
 const handleSortChange = () => {
-  // Sorting is handled in computed property
+  currentPage.value = 1;
+  loadMovies();
 };
 
 const goToMovie = (id) => {

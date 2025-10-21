@@ -10,7 +10,7 @@
             <path d="M12 18v3"/>
           </svg>
         </div>
-        <h1 class="login-form__title">Entrar no Terror Vault</h1>
+        <h1 class="login-form__title">Entrar no Sede Do Medo</h1>
         <p class="login-form__subtitle">Use suas credenciais do TMDB</p>
       </div>
 

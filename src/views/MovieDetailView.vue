@@ -237,8 +237,6 @@
         </section>
       </div>
     </div>
-
-    <!-- Trailer Modal -->
     <TrailerModal
       :show="showTrailerModal"
       :trailer="movie?.trailer"
@@ -322,7 +320,7 @@ const toggleFavorite = (movie) => {
 const shareMovie = async () => {
   const shareData = {
     title: movie.value.title,
-    text: `Confira ${movie.value.title} no Terror Vault!`,
+    text: `Confira ${movie.value.title} na Sede do Medo!`,
     url: window.location.href,
   }
 
