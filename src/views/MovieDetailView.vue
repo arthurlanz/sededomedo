@@ -186,6 +186,11 @@
               </div>
             </div>
           </div>
+          <!-- Movie Rating Section -->
+          <div class="movie-detail__section">
+            <h2 class="movie-detail__section-title">Avaliar Filme</h2>
+            <MovieRating :movie-id="movie.id" />
+          </div>
         </div>
 
         <!-- Cast -->
@@ -232,8 +237,6 @@
         </section>
       </div>
     </div>
-
-    <!-- Trailer Modal -->
     <TrailerModal
       :show="showTrailerModal"
       :trailer="movie?.trailer"
@@ -251,6 +254,7 @@ import { getImageUrl, getBackdropUrl } from '@/plugins/axios'
 import LoadingScreen from '@/components/LoadingScreen.vue'
 import MovieCard from '@/components/MovieCard.vue'
 import TrailerModal from '@/components/TrailerModal.vue'
+import MovieRating from '@/components/MovieRating.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -316,7 +320,7 @@ const toggleFavorite = (movie) => {
 const shareMovie = async () => {
   const shareData = {
     title: movie.value.title,
-    text: `Confira ${movie.value.title} no Terror Vault!`,
+    text: `Confira ${movie.value.title} na Sede do Medo!`,
     url: window.location.href,
   }
 
