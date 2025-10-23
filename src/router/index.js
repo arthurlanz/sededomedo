@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { useAuthStore } from '@/stores/auth';
 import HomeView from '@/views/HomeView.vue';
 
 const router = createRouter({
@@ -9,8 +10,18 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: {
-        title: 'Sede Do Medo - Descubra os Melhores Filmes de Terror',
+        title: 'Sede do Medo - Descubra os Melhores Filmes de Terror',
         requiresAgeConfirmation: true,
+      },
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/LoginView.vue'),
+      meta: {
+        title: 'Login - Sede do Medo',
+        requiresAgeConfirmation: true,
+        guestOnly: true,
       },
     },
     {
@@ -18,7 +29,7 @@ const router = createRouter({
       name: 'movie-detail',
       component: () => import('@/views/MovieDetailView.vue'),
       meta: {
-        title: 'Detalhes do Filme - Sede Do Medo',
+        title: 'Detalhes do Filme - Sede do Medo',
         requiresAgeConfirmation: true,
       },
     },
@@ -27,7 +38,7 @@ const router = createRouter({
       name: 'favorites',
       component: () => import('@/views/FavoritesView.vue'),
       meta: {
-        title: 'Meus Favoritos - Sede Do Medo',
+        title: 'Meus Favoritos - Sede do Medo',
         requiresAgeConfirmation: true,
       },
     },
@@ -36,7 +47,37 @@ const router = createRouter({
       name: 'search',
       component: () => import('@/views/SearchView.vue'),
       meta: {
-        title: 'Buscar Filmes - Sede Do Medo',
+        title: 'Buscar Filmes - Sede do Medo',
+        requiresAgeConfirmation: true,
+      },
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('@/views/ProfileView.vue'),
+      meta: {
+        title: 'Meu Perfil - Sede do Medo',
+        requiresAuth: true,
+        requiresAgeConfirmation: true,
+      },
+    },
+    {
+      path: '/watchlist',
+      name: 'watchlist',
+      component: () => import('@/views/WatchlistView.vue'),
+      meta: {
+        title: 'Minha Watchlist - Sede do Medo',
+        requiresAuth: true,
+        requiresAgeConfirmation: true,
+      },
+    },
+    {
+      path: '/my-ratings',
+      name: 'my-ratings',
+      component: () => import('@/views/MyRatingsView.vue'),
+      meta: {
+        title: 'Minhas Avaliações - Sede do Medo',
+        requiresAuth: true,
         requiresAgeConfirmation: true,
       },
     },
@@ -64,9 +105,11 @@ const router = createRouter({
 });
 
 // Navigation Guard
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+  const authStore = useAuthStore();
+
   // Atualizar título da página
-  document.title = to.meta.title || 'Terror Vault';
+  document.title = to.meta.title || 'Sede do Medo';
 
   // Adicionar meta description
   let metaDescription = document.querySelector('meta[name="description"]');
@@ -76,6 +119,27 @@ router.beforeEach((to, from, next) => {
     document.head.appendChild(metaDescription);
   }
   metaDescription.content = 'Descubra, explore e avalie os melhores filmes de terror. Plataforma completa com trailers, sinopses e informações detalhadas.';
+
+  // Verificar se rota requer autenticação
+  if (to.meta.requiresAuth) {
+    if (!authStore.isAuthenticated) {
+      // Redirecionar para login
+      next({
+        name: 'login',
+        query: { redirect: to.fullPath },
+      });
+      return;
+    }
+  }
+
+  // Verificar se é rota apenas para convidados (login)
+  if (to.meta.guestOnly) {
+    if (authStore.isAuthenticated) {
+      // Redirecionar para home se já estiver logado
+      next({ name: 'home' });
+      return;
+    }
+  }
 
   next();
 });
@@ -87,4 +151,3 @@ router.afterEach(() => {
 });
 
 export default router;
-
