@@ -15,7 +15,7 @@
       <p class="movie-rating__label">{{ userRating ? 'Sua avaliação:' : 'Avaliar este filme:' }}</p>
       <div class="movie-rating__stars">
         <button
-          v-for="star in 10"
+          v-for="star in 5"
           :key="star"
           @click="handleRate(star)"
           @mouseenter="hoverRating = star"
@@ -28,7 +28,7 @@
           </svg>
         </button>
       </div>
-      <p v-if="userRating" class="movie-rating__value">{{ userRating }}/10</p>
+      <p v-if="userRating" class="movie-rating__value">{{ userRating }}/5</p>
 
       <button
         v-if="userRating"
@@ -116,6 +116,8 @@ onMounted(async () => {
     }
   }
 });
+
+
 </script>
 
 <style scoped>
@@ -148,7 +150,7 @@ onMounted(async () => {
 }
 
 .movie-rating__container {
-  padding: 1.5rem;
+  padding: 1.7rem 1.5rem 1.5rem 2rem;
   background: rgba(31, 41, 55, 0.5);
   border: 1px solid rgba(220, 38, 38, 0.3);
   border-radius: 0.75rem;

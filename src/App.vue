@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    <!-- Age Warning -->
+
     <AgeWarning v-if="!ageConfirmed" @accept="handleAgeAccept" />
 
-    <!-- Main App -->
     <div v-else class="app-content">
-      <!-- Header -->
       <header class="app-header">
         <div class="container app-header__container">
           <router-link to="/" class="app-header__logo">
@@ -18,7 +16,6 @@
             <span>SEDE DO MEDO</span>
           </router-link>
 
-          <!-- Navigation -->
           <nav class="app-header__nav">
             <SearchBar />
 
@@ -29,7 +26,6 @@
               <span v-if="favoritesCount > 0" class="app-header__badge">{{ favoritesCount }}</span>
             </router-link>
 
-            <!-- User Section -->
             <UserDropdown v-if="isAuthenticated" :user="user" />
             <router-link v-else to="/login" class="app-header__login-btn">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -41,7 +37,6 @@
             </router-link>
           </nav>
 
-          <!-- Mobile Menu Toggle -->
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="app-header__menu-toggle">
             <svg v-if="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="3" y1="12" x2="21" y2="12"/>
@@ -55,7 +50,6 @@
           </button>
         </div>
 
-        <!-- Mobile Menu -->
         <Transition name="slide-down">
           <div v-if="mobileMenuOpen" class="app-header__mobile-menu">
             <router-link to="/" @click="mobileMenuOpen = false" class="app-header__mobile-link">
@@ -86,7 +80,6 @@
         </Transition>
       </header>
 
-      <!-- Main Content -->
       <main class="app-main">
         <router-view v-slot="{ Component }">
           <Transition name="fade" mode="out-in">
@@ -95,7 +88,6 @@
         </router-view>
       </main>
 
-      <!-- Footer -->
       <footer class="app-footer">
         <div class="container">
           <div class="app-footer__content">
@@ -165,7 +157,7 @@ onMounted(async () => {
     ageConfirmed.value = true;
   }
 
-  // Restaurar sessão se existir
+
   await authStore.restoreSession();
 });
 </script>
@@ -183,7 +175,9 @@ onMounted(async () => {
   z-index: 100;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+  padding-bottom: 1.5vw;
+  padding-top: 1vw;
+
 }
 
 .app-header__container {
@@ -320,15 +314,15 @@ min-height: calc(100vh - 200px);
 }
 .app-footer {
 background: linear-gradient(to bottom, transparent, #000000);
-border-top: 2px solid rgba(220, 38, 38, 0.3);
-padding: 3rem 0 1.5rem;
-margin-top: 4rem;
+padding: 3rem 5rem 1.5rem;
+margin-top: 5rem;
+margin-bottom: 2rem;
 }
 .app-footer__content {
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 3rem;
-margin-bottom: 2rem;
+margin-bottom: 4rem;
 }
 .app-footer__logo {
 display: flex;

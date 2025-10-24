@@ -186,8 +186,7 @@
               </div>
             </div>
           </div>
-          <!-- Movie Rating Section -->
-          <div class="movie-detail__section">
+          <div class="movie-detail__rating-box">
             <h2 class="movie-detail__section-title">Avaliar Filme</h2>
             <MovieRating :movie-id="movie.id" />
           </div>
@@ -406,7 +405,6 @@ onMounted(() => {
 }
 
 .movie-detail__poster-section {
-  position: sticky;
   top: 2rem;
   height: fit-content;
 }
@@ -579,6 +577,10 @@ onMounted(() => {
   font-size: 0.875rem;
 }
 
+.movie-detail__rating-box {
+  margin-bottom: 2rem;
+}
+
 .movie-detail__section {
   margin-bottom: 2rem;
 }
@@ -618,6 +620,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  
 }
 
 .movie-detail__info-item strong {
